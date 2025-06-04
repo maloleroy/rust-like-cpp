@@ -46,8 +46,8 @@ f(move(a)); // where void f(unique_ptr<int32_t> x)
 ### Concepts everywhere
 ```rust
 trait Speak {
-	fn speak(&self, msg: &str);
-	fn get_age(&self) -> u32;
+    fn speak(&self, msg: &str);
+    fn get_age(&self) -> u32;
 }
 ```
 ```cpp
