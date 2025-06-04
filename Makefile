@@ -36,6 +36,25 @@ ALL_RS_TARGETS := $(patsubst %.rs,%_rs,$(ALL_RS_SRCS))
 # Default target: build all found C++ and Rust targets
 all: $(ALL_CPP_TARGETS) $(ALL_RS_TARGETS)
 
+# Target to build only Rust executables
+rust: $(ALL_RS_TARGETS)
+
+# Target to build only C++ executables
+cpp: $(ALL_CPP_TARGETS)
+
+# Target to run all Rust executables
+run-rust: $(ALL_RS_TARGETS)
+	@echo "Running Rust executables..."
+	@$(foreach exe,$(ALL_RS_TARGETS),echo "Executing $(exe)"; ./$(exe);)
+
+# Target to run all C++ executables
+run-cpp: $(ALL_CPP_TARGETS)
+	@echo "Running C++ executables..."
+	@$(foreach exe,$(ALL_CPP_TARGETS),echo "Executing $(exe)"; ./$(exe);)
+
+# Target to run all executables
+run-all: run-rust run-cpp
+
 # Clean target: remove all compiled executables identified
 clean:
 	@echo "Cleaning compiled files..."
@@ -44,4 +63,4 @@ clean:
 
 # Phony targets to ensure 'all' and 'clean' always run their recipes
 # and are not confused with files named 'all' or 'clean'.
-.PHONY: all clean
+.PHONY: all clean rust cpp run-rust run-cpp run-all
