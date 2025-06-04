@@ -1,6 +1,6 @@
 # Compilers and flags
 CXX ?= clang++
-CXXFLAGS := -std=c++23
+CXXFLAGS ?= -std=c++23
 RUSTC ?= rustc
 
 # Find all top-level directories (e.g., common-types/, memory/, traits/)

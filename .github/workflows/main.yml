@@ -28,6 +28,6 @@ jobs:
 
     - name: Run make run-all
       run: |
-        export CXX=clang++
+        export CXX=clang++-19
         export CXXFLAGS="-std=c++23"
         make run-all
