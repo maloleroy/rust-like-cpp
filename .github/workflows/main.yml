@@ -26,4 +26,7 @@ jobs:
         override: true
 
     - name: Run make run-all
-      run: make run-all
+      run: |
+        export CXX=clang++
+        export CXXFLAGS="-std=c++23"
+        make run-all
