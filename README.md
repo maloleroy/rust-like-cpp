@@ -4,6 +4,16 @@ This repo is an effort to prove that modern C++ has quite a lot of Rust's featur
 
 > Of course this is nothing to be taken seriously. Consider this to be (mostly) educated shitposting
 
+## Usage
+
+```bash
+# Build all executables
+make
+
+# Build and run all executables
+make run-all
+```
+
 ## Common types
 ### Integers? Integers!
 ```rust
