@@ -17,7 +17,8 @@ jobs:
     - name: Set up C++ compiler (clang)
       run: |
         sudo apt-get update
-        sudo apt-get install -y clang
+        sudo apt-get install -y clang-19
+        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 100
 
     - name: Set up Rust
       uses: actions-rs/toolchain@v1
