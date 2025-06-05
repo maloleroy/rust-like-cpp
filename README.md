@@ -98,8 +98,8 @@ struct Dog {
 static_assert(Speak<Dog>);
 ```
 
-## Options and Results
-### Option<T> for nullable values
+## Safer Return Values
+### Options
 ```rust
 fn find(id: u32) -> Option<u32> {
     if id > 0 { Some(id) } else { None }
@@ -111,8 +111,7 @@ std::optional<uint32_t> find(uint32_t id) {
     return std::nullopt;
 }
 ```
-
-### Result<T, E> for error handling
+### Expected results
 ```rust
 fn divide(a: i32, b: i32) -> Result<i32, &'static str> {
     if b == 0 { Err("division by zero") } else { Ok(a / b) }
@@ -122,5 +121,18 @@ fn divide(a: i32, b: i32) -> Result<i32, &'static str> {
 std::expected<int32_t, std::string> divide(int32_t a, int32_t b) {
     if (b == 0) return std::unexpected("division by zero");
     return a / b;
+}
+```
+### Don't ignore me
+```rust
+#[must_use]
+fn compute_value() -> i32 {
+    42
+}
+```
+```cpp
+[[nodiscard]]
+int32_t compute_value() {
+    return 42;
 }
 ```
